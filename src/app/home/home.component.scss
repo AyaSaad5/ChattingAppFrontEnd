@@ -1,0 +1,8 @@
+.row, .col-md-6, .col-lg-4 {
+    width: 100%; /* Ensures that rows and columns take the full available width */
+    max-width: 400px; /* Optional, limits how wide the form can get */
+}
+
+app-register {
+    width: 100%; /* Ensures your form takes up all available width */
+}
