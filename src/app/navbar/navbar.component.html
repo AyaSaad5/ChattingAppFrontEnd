@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
       <a class="navbar-brand" routerLink="/" routerLinkActive="active">Dating App</a>
       <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,9 @@
               <a class="nav-link" style="cursor: pointer;" routerLink="/messages"  routerLinkActive="active">Messages</a>
             </li>
           </ng-container>
-         
+          <li class="nav-item" >
+            <a class="nav-link" style="cursor: pointer;" routerLink="/errors"  routerLinkActive="active">Errors</a>
+          </li>
         </ul>
 
         <div *ngIf="(currentUser | async) as user" class="dropdown" dropdown>
