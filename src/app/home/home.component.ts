@@ -12,25 +12,26 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient){}
   ngOnInit(): void {
     
-    this.getUsers()
   }
 
-  getUsers()
-  {
-    this.http.get(`https://localhost:7283/api/users`).subscribe(
-      response => {
-        this.users = response
-        console.log(this.users)
-      },
-      error => {
-        console.log(error)
-      },
-      () =>
-      {
-        console.log(' the request success !')
-      }
-    )
-  }
+  // getUsers()
+  // {
+  //   this.http.get(`https://localhost:7283/api/users`).subscribe(
+  //     response => {
+  //       this.users = response
+  //       console.log(this.users)
+  //     },
+  //     error => {
+  //       console.log(error)
+  //     },
+  //     () =>
+  //     {
+  //       console.log(' the request success !')
+  //     }
+  //   )
+  // }
+
+  
 registerToggle()
 {
   this.registerMode = !this.registerMode
