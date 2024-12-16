@@ -38,6 +38,14 @@ export class MembersService {
       this.members [index] = {... this.members [index], ...member}
       }))
   }
+  setMainPhoto(photoId: number)
+  {
+    return this.http.put(this.baseUrl+'users/setMainPhoto/'+photoId, {})
+  }
+ deletePhoto(photoId: number)
+  {
+    return this.http.delete(this.baseUrl+'users/deletephoto/'+photoId, {})
+  }
   // getHttpOptions()
   // {
   //   const userString = localStorage.getItem('user')
