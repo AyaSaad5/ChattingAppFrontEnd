@@ -16,6 +16,9 @@
             <li class="nav-item" >
               <a class="nav-link" style="cursor: pointer;" routerLink="/messages"  routerLinkActive="active">Messages</a>
             </li>
+            <li class="nav-item" *appHasRole="['Admin', 'Moderator']">
+              <a class="nav-link" style="cursor: pointer;" routerLink="/admin"  routerLinkActive="active">Admin</a>
+            </li>
           </ng-container>
           <li class="nav-item" >
             <a class="nav-link" style="cursor: pointer;" routerLink="/errors"  routerLinkActive="active">Errors</a>
@@ -40,7 +43,7 @@
 
           <input 
           name="password"
-          [(ngModel)] = "model.password"
+          [(ngModel)]= "model.password"
           class="form-control me-2" 
           type="password" 
           placeholder="Password">

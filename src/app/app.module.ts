@@ -24,7 +24,7 @@ import { LoadingInterceptor } from './_interceptor/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { TextInputComponent } from './forms/text-input/text-input.component';
 import { DatePickerComponent } from './forms/date-picker/date-picker.component';
-
+import { HasRoleDirective } from './_directives/has-role.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,15 +42,17 @@ import { DatePickerComponent } from './forms/date-picker/date-picker.component';
     PhotoEditorComponent,
     TextInputComponent,
     DatePickerComponent,
+    HasRoleDirective,
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorsInterceptor, multi: true},
