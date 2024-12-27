@@ -5,6 +5,7 @@ import { map, take } from 'rxjs';
 import { NotExpr } from '@angular/compiler';
 
 @Directive({
+  standalone:true,
   selector: '[appHasRole]'
 })
 export class HasRoleDirective implements OnInit{

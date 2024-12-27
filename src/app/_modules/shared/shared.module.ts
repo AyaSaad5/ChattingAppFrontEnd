@@ -9,8 +9,9 @@ import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {PaginationModule} from 'ngx-bootstrap/pagination'
 import {ButtonsModule} from 'ngx-bootstrap/buttons';
 import { TimeagoModule } from 'ngx-timeago';
+import { HasRoleDirective } from 'src/app/_directives/has-role.directive';
 
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [],
   imports: [
@@ -28,9 +29,12 @@ import { TimeagoModule } from 'ngx-timeago';
     PaginationModule.forRoot(),
     ButtonsModule.forRoot(),
     TimeagoModule.forRoot(),
+    HasRoleDirective,
+    ModalModule.forRoot(),
 
    ],
     exports:[
+      HasRoleDirective,
       BsDropdownModule,
       ToastrModule,
       TabsModule,
@@ -40,6 +44,7 @@ import { TimeagoModule } from 'ngx-timeago';
       PaginationModule,
       ButtonsModule,
       TimeagoModule,
+      ModalModule
     ]
 })
 export class SharedModule { }

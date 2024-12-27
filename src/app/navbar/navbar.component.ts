@@ -4,11 +4,12 @@ import { Observable, of } from 'rxjs';
 import { user } from '../Models/User';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { HasRoleDirective } from '../_directives/has-role.directive';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
  
