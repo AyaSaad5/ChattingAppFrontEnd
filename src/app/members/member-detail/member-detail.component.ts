@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GalleryItem, GalleryModule, ImageItem } from 'ng-gallery';
 import { TabDirective, TabsetComponent, TabsModule } from 'ngx-bootstrap/tabs';
@@ -10,6 +10,9 @@ import { MembersService } from 'src/app/Services/members.service';
 import { MemberMessageComponent } from '../member-message/member-message.component';
 import { MessageService } from 'src/app/Services/message.service';
 import { Message } from 'src/app/Models/message';
+import { PrecenseService } from 'src/app/Services/precense.service';
+import { take } from 'rxjs';
+import { user } from 'src/app/Models/User';
 
 @Component({
   selector: 'app-member-detail',
@@ -24,9 +27,18 @@ export class MemberDetailComponent implements OnInit {
   images : GalleryItem[] = []
   activeTab?: TabDirective
   messages: Message[] = []
-  constructor(private route: ActivatedRoute, private memberService: MembersService,
-              private messageService: MessageService
-  ){}
+  user?:user
+  constructor(private route: ActivatedRoute, private accountService: AccountService,
+              private messageService: MessageService,
+              public precenseService: PrecenseService
+  ){
+    accountService.currentUser.pipe(take(1)).subscribe({
+      next: user => {
+        if(user) this.user = user
+      }
+    })
+  }
+
   ngOnInit(): void {
     // this.loadMember()
    this.route.data.subscribe({
@@ -49,8 +61,12 @@ export class MemberDetailComponent implements OnInit {
   }
   onTabActivated(data: TabDirective){
      this.activeTab = data
-     if(this.activeTab.heading === 'Messages'){
-       this.loadMessages()
+     if(this.activeTab.heading === 'Messages' && this.user){
+      console.log(this.user)
+       this.messageService.createHubConnection(this.user, this.member.userName)
+     }
+     else{
+      this.messageService.stopHubConnection()
      }
   }
 
@@ -61,17 +77,17 @@ loadMessages(){
     })
   }
 }
-loadMember(){
-  var username = this.route.snapshot.paramMap.get('username')
-  if(!username) return;
-  this.memberService.getMember(username).subscribe({
-    next: (m) =>{
-       this.member = m
-       this.getImages()
-    }
-  })
-  console.log(this.member)
-}
+// loadMember(){
+//   var username = this.route.snapshot.paramMap.get('username')
+//   if(!username) return;
+//   this.memberService.getMember(username).subscribe({
+//     next: (m) =>{
+//        this.member = m
+//        this.getImages()
+//     }
+//   })
+//   console.log(this.member)
+// }
 
 getImages()
 {
