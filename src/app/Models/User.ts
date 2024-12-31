@@ -1,5 +1,5 @@
 export interface user{
-    username?: string
+    userName?: string
     token?: string
     photoUrl?: string
     knownAs?:string

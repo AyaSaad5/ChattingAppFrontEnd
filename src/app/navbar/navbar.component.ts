@@ -36,7 +36,10 @@ export class NavbarComponent implements OnInit {
   login()
   {
     this.accountService.login(this.model).subscribe({
-      next : _ => this.router.navigateByUrl('/members')
+      next : _ => {
+     this.router.navigateByUrl('/members')
+     this.model = {}
+    }
         // this.loggedIn = true
       ,
     })
@@ -46,6 +49,7 @@ export class NavbarComponent implements OnInit {
   {
     this.accountService.logOut()
     this.router.navigateByUrl('/')
+    this.model = {}
     // this.loggedIn = false
   }
 }

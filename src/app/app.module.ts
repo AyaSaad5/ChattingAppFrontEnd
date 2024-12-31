@@ -29,6 +29,7 @@ import { UserManagmentComponent } from './admin/user-managment/user-managment.co
 import { PhotoManagmentComponent } from './admin/photo-managment/photo-managment.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { RoleModalComponent } from './modals/role-modal/role-modal.component';
+import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { RoleModalComponent } from './modals/role-modal/role-modal.component';
     TextInputComponent,
     DatePickerComponent,
     RoleModalComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     PhotoManagmentComponent,
